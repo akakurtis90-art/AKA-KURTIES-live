@@ -1,65 +1,270 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>AKA Kurtis</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKA Kurtis | Royal Maharani Collection</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <nav>
-        <h2>AKA Kurtis</h2>
-        <ul>
-            <li>Home</li>
-            <li>Collection</li>
-            <li>About</li>
-            <li>Contact</li>
-<li>Cart: <span id="cart-count">0</span></li>
-        </ul>
-    </nav>
+    <header>
+        <div class="logo">
+            <h1>AKA Kurtis</h1>
+            <p>Royal Maharani Collection</p>
+        </div>
+
+        <nav>
+            <a href="#categories">Categories</a>
+            <a href="#products">Products</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#instagram">Instagram</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
 
     <section class="hero">
-        <h1>Elegance in Every Stitch</h1>
-        <p>Discover the latest collection of stylish kurtis.</p>
-        <button>Shop Now</button>
+
+        <div class="hero-content">
+            <h2>Grace of a Maharani</h2>
+
+            <p>
+                Discover elegant kurtis crafted for every Indian woman.
+            </p>
+
+            <a href="#products" class="btn">
+                Shop Now
+            </a>
+        </div>
+
     </section>
-    <section class="products">
-    <h2>Our Collection</h2>
 
-    <div class="product-grid">
 
-        <div class="product-card">
-        <img src="1.jpeg" alt="Pink Embroidered Kurti">
-            <h3>Floral Pink Kurti</h3>
-            <p>&#8377;1299</p>
-            <button onclick="addToCart('Floral Pink Kurti')">Add to Cart</button>
-            <a href="https://wa.me/919510659255?text=Hi%20AKA%20Kurtis!%20I%20want%20to%20order%20the%20Pink%20Embroidered%20Kurti." target="_blank">
-    <button>Order on WhatsApp</button>
-</a>
+    <section id="categories">
+
+        <h2>Shop By Category</h2>
+
+        <div class="category-grid">
+
+            <div class="category-card">
+                Party Wear
+            </div>
+
+            <div class="category-card">
+                Casual Wear
+            </div>
+
+            <div class="category-card">
+                Festive Collection
+            </div>
+
+            <div class="category-card">
+                Designer Kurtis
+            </div>
+
+            <div class="category-card">
+                Office Wear
+            </div>
+
+            <div class="category-card">
+                New Arrivals
+            </div>
+
         </div>
 
-        <div class="product-card">
-            <img src="2.jpeg" alt="Blue Designer Kurti">
-            <h3>Elegant Blue Kurti</h3>
-            <p>&#8377;1299</p>
-            <button onclick="addToCart('Elegant Blue Kurti')">Add to Cart</button>
-            <a href="https://wa.me/919510659255?text=Hi%20AKA%20Kurtis!%20I%20want%20to%20order%20the%20Blue%20Designer%20Kurti." target="_blank">
-    <button>Order on WhatsApp</button>
-</a>
+    </section>
+
+
+    <section id="products">
+
+        <h2>Royal Collection</h2>
+
+        <div class="product-grid">
+
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400?text=Kurti+1">
+                <h3>Royal Kurti 1</h3>
+                <p>₹999</p>
+                <button onclick="addToCart('Royal Kurti 1',999)">Add to Cart</button>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400?text=Kurti+2">
+                <h3>Royal Kurti 2</h3>
+                <p>₹1049</p>
+                <button onclick="addToCart('Royal Kurti 2',1049)">Add to Cart</button>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400?text=Kurti+3">
+                <h3>Royal Kurti 3</h3>
+                <p>₹1099</p>
+                <button onclick="addToCart('Royal Kurti 3',1099)">Add to Cart</button>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400?text=Kurti+4">
+                <h3>Royal Kurti 4</h3>
+                <p>₹1149</p>
+                <button onclick="addToCart('Royal Kurti 4',1099)">Add to Cart</button>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400?text=Kurti+5">
+                <h3>Royal Kurti 5</h3>
+                <p>₹1199</p>
+                <button onclick="addToCart('Royal Kurti 5',1099)">Add to Cart</button>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400?text=Kurti+6">
+                <h3>Royal Kurti 6</h3>
+                <p>₹1249</p>
+                <button onclick="addToCart('Royal Kurti 6',1099)">Add to Cart</button>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400?text=Kurti+7">
+                <h3>Royal Kurti 7</h3>
+                <p>₹1299</p>
+                <button onclick="addToCart('Royal Kurti 7',1099)">Add to Cart</button>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400?text=Kurti+8">
+                <h3>Royal Kurti 8</h3>
+                <p>₹1349</p>
+                <button onclick="addToCart('Royal Kurti 8',1099)">Add to Cart</button>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400?text=Kurti+9">
+                <h3>Royal Kurti 9</h3>
+                <p>₹1399</p>
+                <button onclick="addToCart('Royal Kurti 9',1099)">Add to Cart</button>
+            </div>
+
+            <!-- Product 10 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400?text=Kurti+10">
+                <h3>Royal Kurti 10</h3>
+                <p>₹1449</p>
+                <button onclick="addToCart('Royal Kurti 10',1099)">Add to Cart</button>
+            </div>
+
+            <!-- Product 11–20 -->
+            <div class="product-card"><img src="https://via.placeholder.com/300x400?text=Kurti+11"><h3>Royal Kurti 11</h3><p>₹1499</p><button onclick="addToCart('Royal Kurti 11',1099)">Add to Cart</button></div>
+
+            <div class="product-card"><img src="https://via.placeholder.com/300x400?text=Kurti+12"><h3>Royal Kurti 12</h3><p>₹1549</p><button onclick="addToCart('Royal Kurti 12',1099)">Add to Cart</button></div>
+
+            <div class="product-card"><img src="https://via.placeholder.com/300x400?text=Kurti+13"><h3>Royal Kurti 13</h3><p>₹1599</p><button onclick="addToCart('Royal Kurti 13',1099)">Add to Cart</button></div>
+
+            <div class="product-card"><img src="https://via.placeholder.com/300x400?text=Kurti+14"><h3>Royal Kurti 14</h3><p>₹1649</p><button onclick="addToCart('Royal Kurti 14',1099)">Add to Cart</button></div>
+
+            <div class="product-card"><img src="https://via.placeholder.com/300x400?text=Kurti+15"><h3>Royal Kurti 15</h3><p>₹1699</p><button onclick="addToCart('Royal Kurti 15',1099)">Add to Cart</button></div>
+
+            <div class="product-card"><img src="https://via.placeholder.com/300x400?text=Kurti+16"><h3>Royal Kurti 16</h3><p>₹1749</p><button onclick="addToCart('Royal Kurti 16',1099)">Add to Cart</button></div>
+
+            <div class="product-card"><img src="https://via.placeholder.com/300x400?text=Kurti+17"><h3>Royal Kurti 17</h3><p>₹1799</p><button onclick="addToCart('Royal Kurti 17',1099)">Add to Cart</button></div>
+
+            <div class="product-card"><img src="https://via.placeholder.com/300x400?text=Kurti+18"><h3>Royal Kurti 18</h3><p>₹1849</p><button onclick="addToCart('Royal Kurti 18',1099)">Add to Cart</button></div>
+
+            <div class="product-card"><img src="https://via.placeholder.com/300x400?text=Kurti+19"><h3>Royal Kurti 19</h3><p>₹1899</p><button onclick="addToCart('Royal Kurti 19',1099)">Add to Cart</button></div>
+
+            <div class="product-card"><img src="https://via.placeholder.com/300x400?text=Kurti+20"><h3>Royal Kurti 20</h3><p>₹1949</p><button onclick="addToCart('Royal Kurti 20',1099)">Add to Cart</button></div>
+
         </div>
 
-        <div class="product-card">
-        <img src="3.jpeg" alt="Kurti 3">
-            <h3>Classic White Kurti</h3>
-            <p>&#8377;1299</p>
-            <button onclick="addToCart('Classic White Kurti')">Add to Cart</button>
-            <a href="https://wa.me/919510659255?text=Hi%20AKA%20Kurtis!%20I%20want%20to%20order%20this%20Kurti." target="_blank">
-    <button>Order on WhatsApp</button>
-</a>
+    </section>
+
+
+    <section id="reviews">
+
+        <h2>Customer Reviews</h2>
+
+        <div class="review">
+            ⭐⭐⭐⭐⭐ Amazing quality and fitting.
         </div>
 
-    </div>
+        <div class="review">
+            ⭐⭐⭐⭐⭐ Loved the Royal Maharani collection.
+        </div>
+
+        <div class="review">
+            ⭐⭐⭐⭐⭐ Beautiful designs at affordable prices.
+        </div>
+
+    </section>
+
+
+    <section id="instagram">
+
+        <h2>Follow Us on Instagram</h2>
+
+        <p>@aka_kurtis</p>
+
+    </section>
+
+
+    <section id="cart">
+
+    <h2>
+        Your Cart (<span id="cart-count">0</span>)
+    </h2>
+
+    <div id="cart-items"></div>
+
+    <h3>
+        Total: ₹<span id="cart-total">0</span>
+    </h3>
+
+    <button onclick="goToCheckout()" class="btn">
+        Proceed to Checkout
+    </button>
+
 </section>
 
-    <script src="script.js"></script>
+
+    <section class="whatsapp">
+
+        <h2>Order on WhatsApp</h2>
+
+        <a href="https://wa.me/919510659255" class="btn">
+            Chat on WhatsApp
+        </a>
+
+    </section>
+
+
+    <section id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>Phone: +91 9510659255</p>
+
+        <p>Email: info@akakurtis.com</p>
+
+    </section>
+
+
+    <footer>
+
+        <p>© 2026 AKA Kurtis. All Rights Reserved.</p>
+
+    </footer>
+<script src="script.js"></script>
+<script src="checkout.js"></script>
 </body>
 </html>

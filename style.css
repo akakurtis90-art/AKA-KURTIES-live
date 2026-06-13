@@ -1,71 +1,95 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#fffaf7;
 }
 
-nav {
-    background-color: #d63384;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
+header{
+    background:#6b1f2a;
+    color:white;
+    padding:20px;
+    text-align:center;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+nav{
+    margin-top:15px;
 }
 
-nav li {
-    cursor: pointer;
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:10px;
 }
 
-.hero {
-    text-align: center;
-    padding: 100px 20px;
-    background-color: #fff5f7;
+.hero{
+    background:#f6e2c6;
+    text-align:center;
+    padding:80px 20px;
 }
 
-.hero h1 {
-    font-size: 50px;
-    color: #d63384;
+.btn{
+    display:inline-block;
+    background:#6b1f2a;
+    color:white;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:5px;
 }
 
-.hero p {
-    font-size: 22px;
+section{
+    padding:50px 20px;
 }
 
-button {
-    background-color: #d63384;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-.products {
-    padding: 50px 20px;
-    text-align: center;
+.category-grid,
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
 }
 
-.product-grid {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
+.category-card,
+.product-card{
+    background:white;
+    border:1px solid #ddd;
+    padding:20px;
+    text-align:center;
+    border-radius:10px;
 }
 
-.product-card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    width: 250px;
+.product-card img{
+    width:100%;
+    border-radius:10px;
 }
 
-.product-card img {
-    width: 100%;
-    border-radius: 10px;
+button{
+    background:#6b1f2a;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    cursor:pointer;
+}
+
+.review{
+    background:white;
+    padding:20px;
+    margin-bottom:15px;
+    border-radius:10px;
+}
+
+footer{
+    background:#6b1f2a;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:768px){
+    nav a{
+        display:block;
+        margin:10px 0;
+    }
+
+    .hero{
+        padding:50px 20px;
+    }
 }

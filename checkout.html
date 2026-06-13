@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - AKA Kurtis</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .checkout-container{
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .order-item{
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        input,
+        textarea,
+        select{
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button{
+            background: #6b1f2a;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="checkout-container">
+
+    <h1>Checkout</h1>
+
+    <h2>Your Order</h2>
+
+    <div id="order-summary"></div>
+
+    <h3>
+        Total: ₹<span id="order-total">0</span>
+    </h3>
+
+    <hr>
+
+    <input
+        type="text"
+        id="name"
+        placeholder="Full Name"
+    >
+
+    <input
+        type="tel"
+        id="phone"
+        placeholder="Phone Number"
+    >
+
+    <textarea
+        id="address"
+        placeholder="Full Address"
+    ></textarea>
+
+    <input
+        type="text"
+        id="city"
+        placeholder="City"
+    >
+
+    <input
+        type="text"
+        id="pincode"
+        placeholder="Pincode"
+    >
+
+    <select id="payment">
+        <option value="Cash on Delivery">
+            Cash on Delivery
+        </option>
+
+        <option value="UPI">
+            UPI
+        </option>
+    </select>
+
+    <br><br>
+
+    <button onclick="placeOrder()">
+        Place Order on WhatsApp
+    </button>
+
+</div>
+
+<script src="checkout.js"></script>
+
+</body>
+</html>
