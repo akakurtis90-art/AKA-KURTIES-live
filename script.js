@@ -108,3 +108,51 @@ function goToCheckout() {
 
     window.location.href = "checkout.html";
 }
+function searchProducts() {
+
+    const input = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    const products =
+        document.querySelectorAll(".product-card");
+
+    products.forEach(function(product) {
+
+        const name =
+            product.dataset.name.toLowerCase();
+
+        if (name.includes(input)) {
+
+            product.style.display = "block";
+
+        } else {
+
+            product.style.display = "none";
+        }
+
+    });
+}
+
+function filterProducts(category) {
+
+    const products =
+        document.querySelectorAll(".product-card");
+
+    products.forEach(function(product) {
+
+        if (
+            category === "all" ||
+            product.dataset.category === category
+        ) {
+
+            product.style.display = "block";
+
+        } else {
+
+            product.style.display = "none";
+        }
+
+    });
+}
