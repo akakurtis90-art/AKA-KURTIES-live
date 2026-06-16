@@ -1,34 +1,52 @@
+// Load cart from localStorage
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Load cart when page opens
-updateCart();
+// Add to Cart Function
+function addToCart(name, price, sizeId) {
 
-function addToCart(name, price) {
+    const size = document.getElementById(sizeId).value;
 
-    const existingItem = cart.find(item => item.name === name);
+    if (size === "") {
+        alert("Please select a size.");
+        return;
+    }
+
+    const existingItem = cart.find(item =>
+        item.name === name && item.size === size
+    );
 
     if (existingItem) {
-        existingItem.quantity++;
+
+        existingItem.quantity += 1;
+
     } else {
+
         cart.push({
             name: name,
             price: price,
+            size: size,
             quantity: 1
         });
+
     }
 
-    saveCart();
+    localStorage.setItem("cart", JSON.stringify(cart));
 
-    alert(name + " added to cart!");
+    updateCart();
+
+    alert("Added to Cart!");
 }
 
+// Update Cart Display
 function updateCart() {
 
     const cartItems = document.getElementById("cart-items");
     const cartCount = document.getElementById("cart-count");
     const cartTotal = document.getElementById("cart-total");
 
-    if (!cartItems) return;
+    if (!cartItems || !cartCount || !cartTotal) {
+        return;
+    }
 
     cartItems.innerHTML = "";
 
@@ -42,72 +60,67 @@ function updateCart() {
 
         cartItems.innerHTML += `
             <div class="cart-item">
-
                 <h4>${item.name}</h4>
+                <p>Size: ${item.size}</p>
+                <p>Price: ₹${item.price}</p>
+                <p>Quantity: ${item.quantity}</p>
 
-                <p>
-                    ₹${item.price} × ${item.quantity}
-                </p>
+                <button onclick="increaseQuantity(${index})">
+                    +
+                </button>
 
-                <button onclick="decreaseQty(${index})">−</button>
-
-                <button onclick="increaseQty(${index})">+</button>
+                <button onclick="decreaseQuantity(${index})">
+                    -
+                </button>
 
                 <button onclick="removeItem(${index})">
                     Remove
                 </button>
 
+                <hr>
             </div>
         `;
     });
 
     cartCount.innerText = count;
     cartTotal.innerText = total;
-}
-
-function increaseQty(index) {
-
-    cart[index].quantity++;
-
-    saveCart();
-}
-
-function decreaseQty(index) {
-
-    if (cart[index].quantity > 1) {
-        cart[index].quantity--;
-    } else {
-        cart.splice(index, 1);
-    }
-
-    saveCart();
-}
-
-function removeItem(index) {
-
-    cart.splice(index, 1);
-
-    saveCart();
-}
-
-function saveCart() {
 
     localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// Increase Quantity
+function increaseQuantity(index) {
+
+    cart[index].quantity++;
 
     updateCart();
 }
 
-function goToCheckout() {
+// Decrease Quantity
+function decreaseQuantity(index) {
 
-    if (cart.length === 0) {
-        alert("Your cart is empty.");
-        return;
+    if (cart[index].quantity > 1) {
+
+        cart[index].quantity--;
+
+    } else {
+
+        cart.splice(index, 1);
+
     }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    window.location.href = "checkout.html";
+    updateCart();
 }
+
+// Remove Item
+function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+}
+
+// Search Products
 function searchProducts() {
 
     const input = document
@@ -118,7 +131,7 @@ function searchProducts() {
     const products =
         document.querySelectorAll(".product-card");
 
-    products.forEach(function(product) {
+    products.forEach(product => {
 
         const name =
             product.dataset.name.toLowerCase();
@@ -130,17 +143,18 @@ function searchProducts() {
         } else {
 
             product.style.display = "none";
-        }
 
+        }
     });
 }
 
+// Filter Products
 function filterProducts(category) {
 
     const products =
         document.querySelectorAll(".product-card");
 
-    products.forEach(function(product) {
+    products.forEach(product => {
 
         if (
             category === "all" ||
@@ -152,7 +166,22 @@ function filterProducts(category) {
         } else {
 
             product.style.display = "none";
-        }
 
+        }
     });
 }
+
+// Proceed to Checkout
+function goToCheckout() {
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+        return;
+    }
+
+    window.location.href = "checkout.html";
+}
+
+// Load Cart on Page Load
+updateCart();

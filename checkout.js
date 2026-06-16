@@ -11,20 +11,42 @@ if (summary && totalElement) {
 
     if (cart.length === 0) {
 
-        summary.innerHTML = "<p>Your cart is empty.</p>";
+        summary.innerHTML = `
+            <p>Your cart is empty.</p>
+        `;
 
     } else {
 
         cart.forEach(function(item) {
 
-            total += item.price * item.quantity;
+            const subtotal =
+                item.price * item.quantity;
+
+            total += subtotal;
 
             summary.innerHTML += `
                 <div class="order-item">
-                    <h4>${item.name}</h4>
-                    <p>Price: ₹${item.price}</p>
-                    <p>Quantity: ${item.quantity}</p>
-                    <p>Subtotal: ₹${item.price * item.quantity}</p>
+
+                    <h3>${item.name}</h3>
+
+                    <p>
+                        Size: ${item.size}
+                    </p>
+
+                    <p>
+                        Price: ₹${item.price}
+                    </p>
+
+                    <p>
+                        Quantity: ${item.quantity}
+                    </p>
+
+                    <p>
+                        Subtotal: ₹${subtotal}
+                    </p>
+
+                    <hr>
+
                 </div>
             `;
         });
@@ -36,12 +58,29 @@ if (summary && totalElement) {
 // Place Order Function
 function placeOrder() {
 
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const address = document.getElementById("address").value.trim();
-    const city = document.getElementById("city").value.trim();
-    const pincode = document.getElementById("pincode").value.trim();
-    const payment = document.getElementById("payment").value;
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+        return;
+    }
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const phone =
+        document.getElementById("phone").value.trim();
+
+    const address =
+        document.getElementById("address").value.trim();
+
+    const city =
+        document.getElementById("city").value.trim();
+
+    const pincode =
+        document.getElementById("pincode").value.trim();
+
+    const payment =
+        document.getElementById("payment").value;
 
     // Validation
     if (
@@ -51,42 +90,58 @@ function placeOrder() {
         !city ||
         !pincode
     ) {
+
         alert("Please fill all details.");
         return;
     }
 
-    let message = "🛍️ AKA Kurtis Order\n\n";
+    // Create WhatsApp message
+    let message =
+        "🛍️ AKA Kurtis Order\n\n";
 
     cart.forEach(function(item) {
 
         message +=
-            item.name +
-            " × " +
-            item.quantity +
-            " - ₹" +
+            "Product: " + item.name +
+            "\nSize: " + item.size +
+            "\nQuantity: " + item.quantity +
+            "\nPrice: ₹" + item.price +
+            "\nSubtotal: ₹" +
             (item.price * item.quantity) +
-            "\n";
+            "\n\n";
     });
 
-    message += "\nTotal: ₹" + total;
-    message += "\n\nName: " + name;
-    message += "\nPhone: " + phone;
-    message += "\nAddress: " + address;
-    message += "\nCity: " + city;
-    message += "\nPincode: " + pincode;
-    message += "\nPayment: " + payment;
+    message +=
+        "Total: ₹" + total +
+
+        "\n\nCustomer Details" +
+
+        "\nName: " + name +
+
+        "\nPhone: " + phone +
+
+        "\nAddress: " + address +
+
+        "\nCity: " + city +
+
+        "\nPincode: " + pincode +
+
+        "\nPayment Method: " + payment;
+
+    // UPI Information
+    if (payment === "UPI") {
+
+        message +=
+            "\n\nPlease make payment to UPI ID:" +
+            "\n9510659255@oksbi";
+    }
 
     const whatsappURL =
         "https://wa.me/919510659255?text=" +
         encodeURIComponent(message);
 
-    window.open(whatsappURL, "_blank");
+    // Open WhatsApp
+window.location.href = whatsappURL;
 
-    // Clear cart
-    localStorage.removeItem("cart");
 
-    alert("Order sent successfully!");
-
-    // Redirect back to homepage
-    window.location.href = "index.html";
 }

@@ -1,117 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - AKA Kurtis</title>
+
+    <title>Checkout | AKA Kurtis</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <style>
-        body{
-            font-family: Arial, sans-serif;
-            background: #f8f8f8;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .checkout-container{
-            max-width: 700px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-        }
-
-        .order-item{
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
-        }
-
-        input,
-        textarea,
-        select{
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            box-sizing: border-box;
-        }
-
-        button{
-            background: #6b1f2a;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-    </style>
 </head>
 
 <body>
 
-<div class="checkout-container">
+    <section class="checkout-container">
 
-    <h1>Checkout</h1>
+        <h1>Checkout</h1>
 
-    <h2>Your Order</h2>
+        <div id="order-summary"></div>
 
-    <div id="order-summary"></div>
+        <h2>
+            Total: ₹<span id="order-total">0</span>
+        </h2>
 
-    <h3>
-        Total: ₹<span id="order-total">0</span>
-    </h3>
+        <form onsubmit="event.preventDefault(); placeOrder();">
 
-    <hr>
+            <input
+                type="text"
+                id="name"
+                placeholder="Full Name"
+                required
+            >
 
-    <input
-        type="text"
-        id="name"
-        placeholder="Full Name"
-    >
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Phone Number"
+                required
+            >
 
-    <input
-        type="tel"
-        id="phone"
-        placeholder="Phone Number"
-    >
+            <textarea
+                id="address"
+                placeholder="Full Address"
+                required
+            ></textarea>
 
-    <textarea
-        id="address"
-        placeholder="Full Address"
-    ></textarea>
+            <input
+                type="text"
+                id="city"
+                placeholder="City"
+                required
+            >
 
-    <input
-        type="text"
-        id="city"
-        placeholder="City"
-    >
+            <input
+                type="text"
+                id="pincode"
+                placeholder="Pincode"
+                required
+            >
 
-    <input
-        type="text"
-        id="pincode"
-        placeholder="Pincode"
-    >
+            <label>
+                Payment Method
+            </label>
 
-    <select id="payment">
-        <option value="Cash on Delivery">
-            Cash on Delivery
-        </option>
+            <select id="payment">
 
-        <option value="UPI">
-            UPI
-        </option>
-    </select>
+                <option value="Cash on Delivery">
+                    Cash on Delivery
+                </option>
 
-    <br><br>
+                <option value="UPI">
+                    UPI (9510659255@oksbi)
+                </option>
 
-    <button onclick="placeOrder()">
-        Place Order on WhatsApp
-    </button>
+            </select>
 
-</div>
+            <button type="submit" class="btn">
+                Place Order
+            </button>
 
-<script src="checkout.js"></script>
+        </form>
+
+    </section>
+
+    <script src="checkout.js"></script>
 
 </body>
 </html>
